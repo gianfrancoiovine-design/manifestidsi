@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Gianfranco Iovine">
+    <meta name="copyright" content="Copyright 2026 Gianfranco Iovine. Tutti i diritti riservati.">
+    <title>DSI Manifesto | Diano Social Incubator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Montserrat:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+    :root {
+        --primary: #050A14;
+        --accent:  #C5A059;
+        --bg:      #FDFCFB;
+        --text-main: #1A1A1A;
+        --text-muted: #555555;
+        --deep:    #0A192F;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background: var(--bg);
+        color: var(--text-main);
+        line-height: 1.7;
+        overflow-x: hidden;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+    /* ── HEADER HERO ── */
+    header {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background:
+            linear-gradient(to right, rgba(10,25,47,0.96), rgba(10,25,47,0.82)),
+            url('https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?auto=format&fit=crop&q=80');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 100px 10% 60px;
+    }
+    .hero-pre {
+        color: var(--accent);
+        letter-spacing: 5px;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        font-size: 0.8rem;
+    }
+    h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(3rem, 8vw, 6rem);
+        line-height: 1;
+        margin-bottom: 30px;
+    }
+    .hero-sub {
+        max-width: 750px;
+        font-size: clamp(1rem, 1.8vw, 1.25rem);
+        font-weight: 300;
+        border-left: 3px solid var(--accent);
+        padding-left: 24px;
+        opacity: 0.85;
+        line-height: 1.7;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 90px 0; border-bottom: 1px solid #eee; }
+    section:last-of-type { border-bottom: none; }
+
+    .section-tag {
+        color: var(--accent);
+        font-weight: 800;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        display: block;
+        letter-spacing: 2px;
+    }
+    h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+        line-height: 1.1;
+        margin-bottom: 22px;
+        color: var(--deep);
+    }
+    p { margin-bottom: 18px; font-size: 1rem; }
+    .lead { font-size: 1.25rem; color: var(--deep); font-weight: 600; line-height: 1.45; margin-bottom: 22px; }
+
+    /* ── GRID ── */
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: start; }
+
+    .reveal-box {
+        background: var(--deep);
+        color: white;
+        padding: 44px;
+        border-radius: 4px;
+        box-shadow: 16px 16px 0 var(--accent);
+    }
+    .pill {
+        display: inline-block;
+        padding: 7px 18px;
+        border: 1px solid var(--accent);
+        border-radius: 50px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        margin: 0 8px 8px 0;
+        color: var(--accent);
+        text-transform: uppercase;
+    }
+
+    /* ── OBJECTIVE CARDS ── */
+    .objective-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 24px;
+        margin-top: 50px;
+    }
+    .obj-card {
+        background: white;
+        padding: 36px;
+        border-bottom: 3px solid var(--accent);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        transition: 0.35s;
+    }
+    .obj-card:hover { transform: translateY(-8px); box-shadow: 0 18px 40px rgba(0,0,0,0.1); }
+    .obj-card h3 {
+        font-family: 'Cormorant Garamond', serif;
+        color: var(--accent);
+        margin-bottom: 16px;
+        font-size: 1.8rem;
+    }
+
+    /* ── WOW CARDS ── */
+    .wow-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+    }
+    .wow-card { padding: 36px; background: white; border: 1px solid #eee; transition: 0.35s; }
+    .wow-card:hover { border-color: var(--accent); transform: translateY(-8px); }
+    .wow-card h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.8rem;
+        color: var(--accent);
+        margin-bottom: 12px;
+    }
+
+    /* ── STEPS ── */
+    .dsi-step { display: flex; gap: 28px; margin-bottom: 40px; align-items: flex-start; }
+    .step-count {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 3.5rem;
+        color: #ddd;
+        font-weight: 700;
+        line-height: 1;
+        min-width: 70px;
+    }
+    .step-content h4 {
+        font-size: 1.1rem;
+        color: var(--deep);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* ── PILOT SECTION ── */
+    .pilot-section {
+        background: var(--deep);
+        color: white;
+        border-radius: 8px;
+        padding: 80px 8%;
+        margin: 50px 0;
+    }
+    .pilot-section h2 { color: white; margin-bottom: 24px; }
+    .pilot-tag {
+        background: var(--accent);
+        color: var(--deep);
+        padding: 7px 22px;
+        font-weight: 800;
+        border-radius: 50px;
+        font-size: 0.72rem;
+        letter-spacing: 2px;
+        display: inline-block;
+    }
+    .pilot-list { list-style: none; margin-top: 26px; }
+    .pilot-list li {
+        margin-bottom: 16px;
+        padding-left: 32px;
+        position: relative;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+    .pilot-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-weight: 900;
+        font-size: 1.1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer { background: #050c18; color: white; padding: 90px 0; }
+    .signature-name {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: var(--accent);
+        line-height: 1;
+        margin-top: 16px;
+    }
+    .legal-notice {
+        font-size: 0.7rem;
+        opacity: 0.5;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        line-height: 1.7;
+        margin-top: 26px;
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1000px) {
+        .grid { grid-template-columns: 1fr; gap: 40px; }
+        header { padding: 100px 6% 60px; }
+        .reveal-box { box-shadow: 10px 10px 0 var(--accent); }
+    }
+    @media (max-width: 768px) {
+        header { padding: 70px 6% 48px; min-height: auto; }
+        section { padding: 52px 0; }
+        .objective-grid { gap: 16px; margin-top: 28px; }
+        .obj-card { padding: 24px; }
+        .wow-grid { gap: 16px; margin-top: 28px; }
+        .wow-card { padding: 24px; }
+        .reveal-box { padding: 26px 20px; box-shadow: 6px 6px 0 var(--accent); }
+        .dsi-step { flex-direction: column; gap: 6px; }
+        .step-count { font-size: 2.2rem; min-width: unset; }
+        .pilot-section { padding: 48px 6%; }
+        footer { padding: 60px 0; }
+        .container { padding: 0 20px; }
+    }
+    @media (max-width: 480px) {
+        header { padding: 56px 5% 36px; }
+        .pilot-section { padding: 36px 5%; }
+    }
+    </style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<header>
+    <p class="hero-pre">Diano Social Incubator 2026</p>
+    <h1>L'Incontro<br>che Genera<br>Valore.</h1>
+    <p class="hero-sub">Il primo ecosistema territoriale intergenerazionale per la Silver Economy nel Vallo di Diano: dove l'esperienza degli Over 65 diventa il motore dell'autoimprenditorialità per giovani e donne.</p>
+</header>
+
+<!-- ── SEZIONI ── -->
+<div class="container">
+
+    <!-- 01. L'Intuizione -->
+    <section class="grid reveal">
+        <div>
+            <span class="section-tag">01. L'Intuizione</span>
+            <h2>Perché non ci abbiamo<br>pensato prima?</h2>
+            <p class="lead">Il Vallo di Diano è una fabbrica già pronta. Mancava solo la connessione.</p>
+            <p>Abbiamo decine di laboratori (le cucine e i forni degli anziani), centinaia di maestri d'opera (gli Over 65) e una forza lavoro incredibile (i giovani). <strong>Diano Social Incubator</strong> è il ponte: usiamo la logistica del pane per entrare nelle case, mappare i talenti e trasformare ogni borgo in un'unità produttiva hi-tech e artigianale.</p>
+            <p>Non stiamo creando una startup. Stiamo attivando il "Sistema Operativo" dormiente del territorio.</p>
+        </div>
+        <div class="reveal-box">
+            <span class="pill">Asset-Light</span> <span class="pill">Zero Waste</span> <span class="pill">Generazionale</span>
+            <p style="font-size:1.3rem; font-style:italic; opacity:0.9; line-height:1.55; margin-top:20px;">"Mentre altri chiedono fondi per costruire nuovi centri sociali che resteranno vuoti, noi chiediamo di attivare le case che sono già piene. Piene di storia, forni e persone."</p>
+        </div>
+    </section>
+
+    <!-- 02. La Visione -->
+    <section class="reveal">
+        <div class="grid">
+            <div>
+                <span class="section-tag">02. La Visione</span>
+                <h2>Sconfiggere l'Abbandono.</h2>
+                <p class="lead">Non rispondiamo alla nostalgia con la memoria, ma con l'economia generativa.</p>
+                <p>Il Vallo di Diano custodisce un tesoro invisibile: il capitale umano dei nostri anziani. Il progetto crea un <strong>Incubatore Diffuso</strong> che trasforma borghi e case in Academy operative.</p>
+            </div>
+            <div style="background:var(--accent); min-height:300px; padding:44px; color:white; display:flex; align-items:center; border-radius:4px;">
+                <p style="font-size:clamp(1.4rem,2.5vw,1.9rem); font-family:'Cormorant Garamond',serif; font-style:italic; line-height:1.4; margin:0;">
+                    "Il futuro del territorio non si scrive partendo da ciò che manca, ma riaccendendo la luce su ciò che esiste e attende solo di essere tramandato."
+                </p>
+            </div>
+        </div>
+        <div class="objective-grid">
+            <div class="obj-card"><h3>Empowerment</h3><p>Codificare il "saper fare" dei Senior in asset digitali per le nuove startup locali.</p></div>
+            <div class="obj-card"><h3>Resilienza</h3><p>Attivare micro-economie circolari che sfruttano forni e botteghe dismesse.</p></div>
+            <div class="obj-card"><h3>Salute Sociale</h3><p>Contrastare il decadimento cognitivo degli Over 65 attraverso il ruolo di Mentor.</p></div>
+        </div>
+    </section>
+
+    <!-- 03. Metodo Operativo -->
+    <section class="grid reveal">
+        <div>
+            <span class="section-tag">03. Metodo Operativo</span>
+            <div>
+                <div class="dsi-step"><span class="step-count">01</span><div class="step-content"><h4>Mappatura dei Nodi</h4><p>Identificazione dei "Maestri di Mestiere" e dei loro spazi produttivi per la rete diffusa.</p></div></div>
+                <div class="dsi-step"><span class="step-count">02</span><div class="step-content"><h4>Incubazione Protetta</h4><p>I giovani apprendono l'arte e la scienza della produzione sotto tutela dei Senior.</p></div></div>
+                <div class="dsi-step"><span class="step-count">03</span><div class="step-content"><h4>Certificazione di Filiera</h4><p>Ogni prodotto validato scientificamente (CTF) e tracciato digitalmente.</p></div></div>
+            </div>
+        </div>
+        <div>
+            <h2>Il Capitale della Fiducia.</h2>
+            <p>Il progetto si rivolge agli <strong>Over 65</strong> come Mentor attivi, ai <strong>Giovani</strong> che cercano un'alternativa all'emigrazione e alle <strong>Donne</strong> del territorio come perno della nuova logistica di prossimità.</p>
+            <p>Ogni consegna di pane è un pretesto per un controllo di vicinato, un presidio sanitario e un momento di calore umano.</p>
+            <p>Abbiamo trasformato il 'bisogno di assistenza' in 'desiderio di produzione'.</p>
+        </div>
+    </section>
+
+    <!-- 04. L'Algoritmo Sociale -->
+    <section class="reveal">
+        <span class="section-tag">04. L'Algoritmo Sociale</span>
+        <h2>Il Risveglio del Territorio.</h2>
+        <div class="wow-grid">
+            <div class="wow-card"><h3>Fase 1: La Porta</h3><p>Consegniamo il "Pane della Salute". Entriamo in casa, creiamo fiducia, monitoriamo il benessere in modo non invasivo.</p></div>
+            <div class="wow-card" style="background:var(--deep); color:white;"><h3>Fase 2: Il Risveglio</h3><p>Mappiamo il talento del senior: sa lavorare il legno? Conosce le erbe? Il database del saper fare si popola organicamente.</p></div>
+            <div class="wow-card"><h3>Fase 3: L'Impresa</h3><p>Il giovane non è più un fattorino, ma un apprendista. L'anziano non è più un utente, ma un Socio Mentor.</p></div>
+        </div>
+    </section>
+
+    <!-- 05. Direzione Scientifica -->
+    <section class="grid reveal" id="scientific-validation">
+        <div style="background:url('https://images.unsplash.com/photo-1544965850-6f8a66788f9b?auto=format&fit=crop&q=80') center/cover; min-height:480px; border-radius:4px; box-shadow:-14px 14px 0 rgba(197,160,89,0.12);"></div>
+        <div>
+            <span class="section-tag">05. Direzione Scientifica</span>
+            <h2>Salute Certificata.</h2>
+            <p class="lead">L'eccellenza della ricerca al servizio del territorio.</p>
+            <p>La validazione dei protocolli nutrizionali è affidata alla <strong>Dott.ssa Monica Langone</strong>, garante del rigore biochimico di ogni prodotto del DSI.</p>
+            <div style="background:rgba(197,160,89,0.05); padding:26px; border-left:2px solid var(--accent); margin:22px 0; border-radius:0 8px 8px 0;">
+                <h4 style="text-transform:uppercase; font-size:0.78rem; letter-spacing:1px; color:var(--deep); margin-bottom:12px;">Profilo: Dott.ssa Monica Langone</h4>
+                <ul style="list-style:none; font-size:0.9rem; line-height:1.7;">
+                    <li style="margin-bottom:8px;"><strong>• Laurea CTF:</strong> Specializzazione in biochimica degli alimenti e analisi dei componenti bioattivi.</li>
+                    <li style="margin-bottom:8px;"><strong>• Nutrizione Funzionale:</strong> Prevenzione delle patologie metaboliche attraverso alimenti a basso indice glicemico.</li>
+                    <li><strong>• Direzione Tecnica:</strong> Supervisione di grani antichi e protocolli di fermentazione naturale (Lievito Madre).</li>
+                </ul>
+            </div>
+            <div style="margin-top:28px;">
+                <span class="pill">CTF Validation</span> <span class="pill">Lievito Madre</span> <span class="pill">Silver-Targeted</span>
+            </div>
+        </div>
+    </section>
+
+</div><!-- /container -->
+
+<!-- ── PROGETTO PILOTA (full-width) ── -->
+<div class="container">
+    <div class="pilot-section reveal">
+        <span class="pilot-tag">FOCUS: PROGETTO PILOTA</span>
+        <div class="grid" style="gap:44px; margin-top:28px;">
+            <div>
+                <h2>Panificazione Funzionale:<br>Il Pane come Relazione.</h2>
+                <p>Il pilota trasforma il pane in uno strumento di salute, distribuito tramite abbonamento "Diano Care".</p>
+                <p style="background:rgba(197,160,89,0.12); border-left:3px solid var(--accent); padding:22px; margin-top:24px; color:white;">
+                    <strong>Integrazione:</strong> La logistica di prossimità permette un monitoraggio costante che nessun servizio sanitario pubblico riesce a garantire con la stessa capillarità.
+                </p>
+            </div>
+            <ul class="pilot-list">
+                <li>Validazione biochimica e nutrizionale</li>
+                <li>Riuso di forni storici certificati HACCP</li>
+                <li>Modello di abbonamento mensile ricorsivo</li>
+                <li>Monitoraggio sociale ad ogni consegna</li>
+                <li>Sperimentazione di nuovi mestieri artigiani</li>
+                <li>Certificazione di filiera corta digitale</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- ── ECOSISTEMA DSI ACADEMY (full-width dark) ── -->
+<section style="background:var(--deep); color:white; padding:110px 0; margin:0; border-bottom:none;">
+    <div style="max-width:1150px; margin:0 auto; padding:0 28px;">
+        <div style="text-align:center; margin-bottom:80px;" class="reveal">
+            <span style="color:var(--accent); font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:4px;">Strategia d'Evoluzione</span>
+            <h2 style="color:white; font-size:clamp(2.2rem,4vw,3.5rem); margin-top:12px; text-align:center;">L'Ecosistema DSI Academy</h2>
+            <div style="width:50px; height:2px; background:var(--accent); margin:24px auto;"></div>
+            <p style="max-width:800px; margin:0 auto; font-size:1.1rem; line-height:1.75; opacity:0.75; font-weight:300; text-align:center;">Il DSI non è un servizio assistenziale: è un <strong>motore economico circolare</strong> che trasforma il Vallo di Diano in un polo d'eccellenza per l'autoimprenditorialità.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:50px;" class="reveal">
+            <div style="border-top:1px solid rgba(197,160,89,0.25); padding-top:28px;">
+                <span style="font-size:0.72rem; font-weight:800; color:var(--accent); text-transform:uppercase;">Atto I: L'Ingresso</span>
+                <h3 style="font-family:'Cormorant Garamond',serif; font-size:2rem; margin:12px 0;">Il Pane della Salute</h3>
+                <p style="opacity:0.65; line-height:1.75; font-size:0.95rem;">Usiamo la logistica del pane per rompere l'isolamento degli Over 65 e mappare i talenti nascosti nelle case del Vallo.</p>
+                <div style="margin-top:auto; padding-top:20px; font-size:0.72rem; font-weight:700; color:var(--accent); letter-spacing:1px;">✓ MAPPATURA TALENTI</div>
+            </div>
+            <div style="border-top:2px solid var(--accent); padding-top:28px;">
+                <span style="font-size:0.72rem; font-weight:800; color:var(--accent); text-transform:uppercase;">Atto II: La Formazione</span>
+                <h3 style="font-family:'Cormorant Garamond',serif; font-size:2rem; margin:12px 0;">DSI Academy</h3>
+                <p style="opacity:0.65; line-height:1.75; font-size:0.95rem;">L'anziano diventa <strong>Mentor Certificato</strong>. Le competenze artigiane vengono codificate e insegnate a giovani e donne.</p>
+                <div style="margin-top:auto; padding-top:20px; font-size:0.72rem; font-weight:700; color:var(--accent); letter-spacing:1px;">✓ TRASFERIMENTO KNOW-HOW</div>
+            </div>
+            <div style="border-top:1px solid rgba(197,160,89,0.25); padding-top:28px;">
+                <span style="font-size:0.72rem; font-weight:800; color:var(--accent); text-transform:uppercase;">Atto III: L'Impresa</span>
+                <h3 style="font-family:'Cormorant Garamond',serif; font-size:2rem; margin:12px 0;">Hub Startup</h3>
+                <p style="opacity:0.65; line-height:1.75; font-size:0.95rem;">Il DSI funge da <strong>Hub di Autoimprenditorialità</strong>, lanciando startup locali che operano sui mercati globali.</p>
+                <div style="margin-top:auto; padding-top:20px; font-size:0.72rem; font-weight:700; color:var(--accent); letter-spacing:1px;">✓ NASCITA MICRO-IMPRESE</div>
+            </div>
+        </div>
+        <div style="margin-top:80px; padding:50px; background:rgba(255,255,255,0.02); border:1px solid rgba(197,160,89,0.1); text-align:center;" class="reveal">
+            <h4 style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-style:italic; color:var(--accent); margin-bottom:16px;">Restanza come Avanguardia</h4>
+            <p style="font-size:1rem; max-width:700px; margin:0 auto; line-height:1.8; font-weight:300; opacity:0.85; text-align:center;">Non stiamo solo conservando il passato; stiamo brevettando un modello di vita che trasforma la marginalità in un vantaggio competitivo. <strong>Il Vallo di Diano non è più la periferia, ma il centro di una nuova economia civile.</strong></p>
+        </div>
+    </div>
+</section>
+
+<!-- ── CITAZIONE FINALE ── -->
+<div class="container">
+    <section style="text-align:center; border-bottom:none; padding:100px 0;" class="reveal">
+        <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,3.2rem); line-height:1.35; font-style:italic; color:var(--deep); max-width:860px; margin:0 auto;">
+            "Non cerchiamo di fermare il tempo, ma di dare un nuovo tempo alle nostre radici, affinché i frutti appartengano a chi decide di restare."
+        </p>
+    </section>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="container">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:end;">
+            <div>
+                <span style="color:var(--accent); font-weight:800; font-size:0.72rem; text-transform:uppercase; letter-spacing:2px;">Ideatore e Coordinatore Generale</span>
+                <p class="signature-name">Gianfranco Iovine</p>
+                <div class="legal-notice">
+                    © 2026 GIANFRANCO IOVINE. TUTTI I DIRITTI RISERVATI.<br>
+                    OPERA DELL'INGEGNO PROTETTA DAL DIRITTO D'AUTORE.<br>
+                    MODELLO DSI: PROTOCOLLO DEPOSITATO.
+                </div>
+            </div>
+            <div style="text-align:right;">
+                <p style="font-weight:800; color:var(--accent); margin-bottom:8px; letter-spacing:2px; text-transform:uppercase; font-size:0.82rem;">Vallo di Diano, 2026</p>
+                <p style="font-size:0.9rem; opacity:0.6; max-width:320px; text-align:right; margin-left:auto;">Garante della visione e della coerenza scientifica del sistema intergenerazionale.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
